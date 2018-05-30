@@ -1,0 +1,63 @@
+<div class="container-fluid" id="blog-list">
+
+  <h3>Blog Postings</h3>
+
+  <div [@posts]="posts.length">
+    
+  <div class="list-group" [ngStyle]="{'background-color':'gray'}">
+
+      <a *ngFor="let post of posts" class="list-group-item list-group-item-action flex-column align-items-start">
+          
+        <!--
+          <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1" [ngStyle]="{'color':'blue'}">{{post.title}}</h5>
+              <small>3 days ago</small>
+          </div>
+          <p class="mb-1" [ngStyle]="{'color':'gray'}">{{post.description}}</p>
+  
+          <div class="d-flex w-100 justify-content-between">
+            <small>read more...</small>
+            <div [ngStyle]="{'color':'purple'}">
+                <i title="Edit" class="fas fa-edit" aria-hidden="true" (click)="post.editable = !post.editable"></i>
+                <i title="Delete" class="fas fa-trash-alt" aria-hidden="true" (click)="destroy(post)"></i>
+            </div>
+          </div>
+          
+          <app-blog-edit *ngIf="post.editable" (updatePostEvent)="update($event)" [post]="post"></app-blog-edit>
+        
+        -->
+        
+        <app-blog-post [post]="post" (destroyPostEvent)="destroy($event)" (updatePostEvent)="update($event)"></app-blog-post>
+        
+      </a>
+    
+  </div>
+
+  </div>
+
+  <!-- Modal -->
+  <!--
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure ?
+        </div>
+        <div class="modal-footer">
+          
+          <button #closeBtn (click)="unsetDelete()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button (click)="deletePost()" type="button" class="btn btn-primary">Delete</button>
+          
+        </div>
+      </div>
+      </div>
+      </div>
+  -->
+
+</div>

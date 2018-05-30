@@ -1,0 +1,25 @@
+<!--
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      -->  
+        <h2 class="text-center">Please sign in</h2>
+        <form class="form-signin">
+          <div class="form-group">
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" class="form-control" name="username" id="username" [(ngModel)]="credentials.username" placeholder="Enter username" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" class="form-control" name="password" id="password" [(ngModel)]="credentials.password" placeholder="Enter password" required>
+          </div>
+
+          <button class="btn btn-primary btn-block" (click)="login();" type="button">Sign In</button>
+        </form>
+        <p class="lead text-center">Not a member? Please <a routerLink="/register">register</a> instead.</p>
+<!--
+      </div>
+    </div>
+</div>
+-->

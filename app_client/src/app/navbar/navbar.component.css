@@ -1,0 +1,33 @@
+/*
+#mainNav {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    opacity: 0.9;
+    background: #111;
+    width:100%;
+    height: 5em;
+    z-index: 99;
+    margin-bottom: 10em;
+}
+
+.navbar-brand img {
+  background: #fff;
+}
+#mainNav ul {
+  background: #111;
+  margin-right:0.5em;
+
+}
+*/
+/*
+@media (max-width: 480px) {
+      #mainNav ul{  
+         position: relative!important;
+         width:100%;
+      }
+  }
+*/
+/*
+.navmenu-nav.dropdown-menu .dropdown-backdrop {position:relative!important;}
+*/

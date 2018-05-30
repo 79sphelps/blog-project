@@ -1,0 +1,2 @@
+<app-blog-new (createPostEvent)="create($event)"></app-blog-new>
+<app-blog-list [posts]="posts" (destroyPostEvent)="destroy($event)" (updatePostEvent)="update($event)"></app-blog-list>

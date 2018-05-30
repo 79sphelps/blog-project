@@ -1,0 +1,43 @@
+<!-- Blog Post -->
+<div class="card mb-4">
+
+  <!-- <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"> -->
+  <!-- [ngStyle]="{'width': '50%', 'margin': 'auto'}" -->
+  <img src="./assets/img/beach-wallpaper-for-desktop-9.jpg" alt="" class="card-img-top" >
+  <!-- <img src="./assets/img/beach-wallpaper-for-desktop-9.jpg" height="225" width="300" alt=""> -->
+  <!-- <img src="./assets/img/beach-wallpaper-for-desktop-9.jpg" height="225" width="300" alt=""> -->
+  <div class="card-body">
+    <h2 class="card-title" [ngStyle]="{'color': 'purple'}">{{post.title}}</h2>
+    <p class="card-text" [ngStyle]="{'color': 'gray'}">{{post.description}}</p>
+    <a class="btn btn-primary" (click)="updateReadText()" #readMoreLess>{{ readText }} &rarr;</a>
+
+
+    <div class="d-flex w-100 justify-content-between">
+      <small>read more...</small>
+      <div [ngStyle]="{'color':'purple'}">
+          <i title="Edit" class="fas fa-edit" aria-hidden="true" (click)="post.editable = !post.editable"></i>
+          <i title="Delete" class="fas fa-trash-alt" aria-hidden="true" (click)="destroy(post)"></i>
+      </div>
+    </div> 
+
+  </div>
+
+  <!--
+  <div class="d-flex w-100 justify-content-between">
+    <small>read more...</small>
+    <div [ngStyle]="{'color':'purple'}">
+        <i title="Edit" class="fas fa-edit" aria-hidden="true" (click)="post.editable = !post.editable"></i>
+        <i title="Delete" class="fas fa-trash-alt" aria-hidden="true" (click)="destroy(post)"></i>
+    </div>
+  </div>  
+  --> 
+
+  <div class="card-footer text-muted">
+    Posted on January 1, 2017 by
+    <a href="#page-top">Start Bootstrap</a>
+  </div>
+  
+  <app-blog-content *ngIf="post.display" [post]="post"></app-blog-content>
+  <app-blog-edit *ngIf="post.editable" (updatePostEvent)="update($event)" [post]="post"></app-blog-edit>
+
+</div>

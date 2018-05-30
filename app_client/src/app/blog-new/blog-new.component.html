@@ -1,0 +1,53 @@
+<!--
+<h3>New Post Component</h3>
+<form (ngSubmit)="create()">
+  <input type="text" name="title" [(ngModel)]="newPost.title">
+  <textarea name="description" [(ngModel)]="newPost.description"></textarea>
+  <button class="btn btn-success" type="submit">Create</button>
+</form>
+-->
+
+<div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addPostModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="addPostModalLabel" [ngStyle]="{'color': 'blue'}">Post</h5>
+              <button type="button" #closeBtn class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="form" (ngSubmit)="create()">
+
+                <fieldset formGroupName="newPost">  
+
+                  <div class="form-group" [ngClass]="{'is-invalid': title.invalid && title.dirty, 'has-success': title.valid && title.dirty}">
+                      <label for="title">Title</label>
+                      <input name="title"  formControlName="title" type="text" [(ngModel)]="newPost.title" class="form-control" id="title" aria-describedby="title" placeholder="Enter title">
+                  </div>
+                  <div class="form-group" [ngClass]="{'is-invalid': description.invalid && description.dirty, 'has-success': description.valid && description.dirty}">
+                      <label for="description">Description</label>
+                      <textarea name="description" formControlName="description" [(ngModel)]="newPost.description" class="form-control" id="description" placeholder="Enter description">
+                      </textarea>
+                  </div>
+
+                  <div class="form-control-feedback"
+                    *ngIf="title.errors && (title.dirty || title.touched)">
+                    <p *ngIf="title.errors.required">Title is required</p>
+                    <p *ngIf="title.errors.minlength">Title must be 8 characters long, we need another {{name.errors.minlength.requiredLength - name.errors.minlength.actualLength}} characters </p>
+                  </div>   
+                  <div class="form-control-feedback"
+                    *ngIf="description.errors && (description.dirty || description.touched)">
+                    <p *ngIf="description.errors.required">Description is required</p>
+                    <p *ngIf="description.errors.minlength">Description must be 8 characters long, we need another {{name.errors.minlength.requiredLength - name.errors.minlength.actualLength}} characters </p>
+                  </div>  
+
+                  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Add</button>
+                
+                </fieldset>
+
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
