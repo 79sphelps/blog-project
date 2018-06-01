@@ -1,18 +1,20 @@
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var cors = require('cors');
-var passport = require('passport');
-var path = require('path');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
+"use strict";
 
-var app = express();
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const passport = require('passport');
+const path = require('path');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+
+const app = express();
 
 require('./app_api/models/db');
 
 require('./app_api/config/passport');
 
-var HOST_IP = "192.168.0.32";
+const HOST_IP = "192.168.0.32";
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://" + HOST_IP + ":4200");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -20,8 +22,8 @@ app.use(function(req, res, next) {
     next();
   });
 
-let postRoutes = require('./app_api/routes/posts.routes');
-let userRoutes = require('./app_api/routes/user.routes');
+const postRoutes = require('./app_api/routes/posts.routes');
+const userRoutes = require('./app_api/routes/user.routes');
 
 app.use(morgan('dev'));
 
