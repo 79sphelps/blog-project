@@ -1,5 +1,5 @@
-let mongoose = require('mongoose');
-let PostSchema = mongoose.Schema({
+const mongoose = require('mongoose');
+const PostSchema = mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -16,5 +16,5 @@ let PostSchema = mongoose.Schema({
     }
 }, { collection : 'post' });
 
-let Post = mongoose.model("Post", PostSchema);
+const Post = mongoose.model("Post", PostSchema);
 module.exports = Post;

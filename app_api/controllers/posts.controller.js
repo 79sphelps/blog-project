@@ -1,5 +1,5 @@
-let mongoose = require('mongoose');
-let Post = require('../models/post');
+const mongoose = require('mongoose');
+const Post = require('../models/post');
 //mongoose.connect('mongodb://localhost/blogDbPract');
 
 module.exports.getPosts = function(req, res, next) {

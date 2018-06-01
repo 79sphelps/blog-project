@@ -1,10 +1,10 @@
 // #1
-let mongoose = require('mongoose');
-var crypto = require('crypto');
-var jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
 // #2
-let UserSchema = mongoose.Schema({
+const UserSchema = mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -39,5 +39,5 @@ UserSchema.methods.generateJwt = function() {
 }
 
 // #6
-let User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
 module.exports = User;

@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var jwt = require('express-jwt');
+const express = require('express');
+const router = express.Router();
+const jwt = require('express-jwt');
 
-var ctrlLanding = require('../controllers/landing.controller');
-var ctrlProfile = require('../controllers/profile.controller');
-var ctrlAuth = require('../controllers/auth.controller');
+const ctrlLanding = require('../controllers/landing.controller');
+const ctrlProfile = require('../controllers/profile.controller');
+const ctrlAuth = require('../controllers/auth.controller');
 
-var auth = jwt({
+const auth = jwt({
     secret: 'MY_SECRET',
     userProperty: 'payload'
 });

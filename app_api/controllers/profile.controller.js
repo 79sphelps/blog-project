@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var User = mongoose.model('User');
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
 
 module.exports.profileRead = function(req, res) {
   if (!req.payload._id) {

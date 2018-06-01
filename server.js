@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const express = require('express');
 const cookieParser = require('cookie-parser');
@@ -14,11 +14,11 @@ require('./app_api/models/db');
 
 require('./app_api/config/passport');
 
-const HOST_IP = "192.168.0.32";
+const HOST_IP = '192.168.0.32';
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://" + HOST_IP + ":4200");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header('Access-Control-Allow-Origin', 'http://' + HOST_IP + ':4200');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
   });
 
