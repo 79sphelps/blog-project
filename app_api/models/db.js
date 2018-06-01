@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const gracefulShutdown;
+let gracefulShutdown;
 const dbURI = 'mongodb://localhost/blogDbPract';
 
 
