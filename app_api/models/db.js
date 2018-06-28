@@ -1,7 +1,8 @@
+'use strict';
+
 const mongoose = require('mongoose');
 let gracefulShutdown;
 const dbURI = 'mongodb://localhost/blogDbPract';
-
 
 mongoose.connect(dbURI);
 /*
@@ -9,7 +10,6 @@ mongoose.connect('dbURI', {})
 .then(()=> { console.log('Succesfully Connected to theMongodb Database  at URL : ', dbURI)})
 .catch(()=> { console.log('Error Connecting to the Mongodb Database at URL : ', dbURI)})
 */
-
 
 mongoose.connection.on('connected', function() {
     console.log('Mongoose connected to ' + dbURI);

@@ -1,9 +1,9 @@
-// #1
+'use strict';
+
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
-// #2
 const UserSchema = mongoose.Schema({
     username: {
         type: String,
@@ -14,19 +14,16 @@ const UserSchema = mongoose.Schema({
     salt: String
 }, { collection : 'user' });
 
-// #3
 UserSchema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString('hex');
     this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
 };
 
-// #4
 UserSchema.methods.validPassword = function(password) {
     var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
     return this.hash === hash;
 };
 
-// #5
 UserSchema.methods.generateJwt = function() {
     var expiry = new Date();
     expiry.setDate(expiry.getDate() + 7);
@@ -38,6 +35,5 @@ UserSchema.methods.generateJwt = function() {
     }, "MY_SECRET");
 }
 
-// #6
 const User = mongoose.model("User", UserSchema);
 module.exports = User;
